@@ -28,7 +28,11 @@ char **tokenize(char *buffer, char *delim)
 		if (!*words)
 		{
 			perror("Error doing erroneous things");
-			free(words[x]);
+			while (x >= 0)
+			{
+				free(words[x]);
+				x--;
+			}
 			free(words);
 			return (NULL);
 		}
