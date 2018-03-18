@@ -4,7 +4,7 @@ char *read_line(void)
 {
 	int length;
 	char *line = NULL;
-	ssize_t n = 0;
+	size_t n = 0;
 
 	write(STDOUT_FILENO, "$)> ", 4);
 	getline(&line, &n, stdin);
