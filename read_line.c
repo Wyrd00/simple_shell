@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ * read_line - gets command line from user
+ *
+ * Return: returns the user input from the command line
+ */
 char *read_line(void)
 {
 	int length;
