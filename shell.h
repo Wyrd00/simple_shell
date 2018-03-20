@@ -9,6 +9,12 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+typedef struct path
+{
+	char *dir;
+	struct path *next;
+} path_t;
+
 /* Global Variables */
 extern char **environ;
 
@@ -29,4 +35,6 @@ int word_count(char *s);
 
 /* Environment Functions */
 char *_getenv(char *name);
+path_t *make_path(void);
+
 #endif /* SIMPLE_SHELL */
