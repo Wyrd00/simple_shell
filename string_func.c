@@ -9,16 +9,16 @@
 
 char *_strcpy(char *dest, char *src)
 {
-        char *temp = dest;
+	char *temp = dest;
 
-        while (*src)
-        {
-                *dest  = *src;
-                dest++;
-                src++;
-        }
-        *dest = '\0';
-        return (temp);
+	while (*src)
+	{
+		*dest  = *src;
+		dest++;
+		src++;
+	}
+	*dest = '\0';
+	return (temp);
 }
 
 /**
@@ -30,11 +30,11 @@ char *_strcpy(char *dest, char *src)
 
 int _strlen(char *s)
 {
-        int x = 0;
+	int x = 0;
 
-        while (*(s + x) != '\0')
-                x++;
-        return (x);
+	while (*(s + x) != '\0')
+		x++;
+	return (x);
 }
 
 /**

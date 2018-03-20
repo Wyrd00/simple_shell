@@ -12,8 +12,8 @@ char **tokenize(char *buffer, char *delim)
 	char *token, *bufc;
 	int x = 0;
 	int w_ct = word_count(buffer);
+	char **words = malloc(sizeof(char *) * (w_ct + 1));
 
-	char **words = malloc(sizeof(char*) * (w_ct + 1));
 	bufc = _strdup(buffer);
 	if (!bufc)
 	{
