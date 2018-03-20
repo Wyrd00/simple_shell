@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 
 /* Global Variables */
 extern char **environ;
@@ -22,10 +23,10 @@ char **tokenize(char *buffer, char *delim);
 int execute(char **args);
 void loop(void);
 
-/* Strtok Functions*/
-
-char **tokenize(char *buffer, char *delim);
+/* Tokenize Functions*/
 char *_strtok(char *src, const char *delim);
 int word_count(char *s);
 
+/* Environment Functions */
+char *_getenv(char *name);
 #endif /* SIMPLE_SHELL */
