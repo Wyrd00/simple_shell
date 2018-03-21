@@ -7,18 +7,18 @@
  */
 char *_getenv(char *name)
 {
-	unsigned int x,y;
+	unsigned int x, y;
 	char *match, *delim;
 
 	match  = NULL;
 	delim = "=";
 	x = 0;
-	while(environ[x])
+	while (environ[x])
 	{
 		y = 0;
-		while(name[y])
+		while (name[y])
 		{
-			if (name[y]!= environ[x][y])
+			if (name[y] != environ[x][y])
 				break;
 			if (name[y + 1] == '\0' && environ[x][y + 1] == '=')
 				match = environ[x];
@@ -29,5 +29,5 @@ char *_getenv(char *name)
 			break;
 	}
 	_strtok(match, delim);
-	return(_strtok(NULL, delim));
+	return (_strtok(NULL, delim));
 }

@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
  * check_path - checks path
+ * @head: head of PATH linked list
  * @command: command from arguments
  *
  * Return: returns the proper path or NULL on failure

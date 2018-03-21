@@ -4,7 +4,7 @@
  * _exit - exits the current process
  *
  */
-void _exit(void)
+void hsh_exit(void)
 {
 	exit(0);
 }

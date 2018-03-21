@@ -16,9 +16,11 @@ void loop(void)
 	{
 		line = read_line();
 		args = tokenize(line, " ");
-		status = execute(args);
+		if (check_builtin(args) == 1)
+			status = execute(args);
+
+		free(line);
+		free(args);
 	}
-	free(line);
-	free(args);
 	free(main_path);
 }

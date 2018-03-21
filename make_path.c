@@ -2,9 +2,8 @@
 
 /**
  * make_path - make path
- * @str: string from getpath
  *
- * Return:
+ * Return: returns the head of the path;
  */
 
 path_t *make_path(void)

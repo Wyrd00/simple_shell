@@ -9,12 +9,9 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
-/* Typedefs */
-typedef void (*builtin_func)(void);
-
 /* Path Structure */
 /**
- * struct path_t - path node struct
+ * struct path - path node struct
  * @dir: string containing directory
  * @next: pointer to next node.
  */
@@ -32,7 +29,7 @@ path_t *main_path;
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strdup(char *str);
-char *path_concat(char *s1, char *s2);
+int _strcmp(char *s1, char *s2);
 
 /* Shell Loop Functions */
 char *read_line(void);
@@ -48,10 +45,11 @@ int word_count(char *s);
 char *_getenv(char *name);
 path_t *make_path(void);
 char *check_path(path_t *head, char *command);
+char *path_concat(char *s1, char *s2);
 
 /* Builtin Functions */
-void check_builtin(char **args);
-void _exit(void);
+int check_builtin(char **args);
+void hsh_exit(void);
 void print_env(void);
 void _cd(char **args);
 

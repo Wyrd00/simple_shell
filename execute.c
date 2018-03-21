@@ -1,4 +1,32 @@
 #include "shell.h"
+
+/**
+ * check_command - checks if command is valid
+ * @args: argument vector
+ *
+ * Return: returns something
+ */
+
+int check_command(char **args)
+{
+	char *result;
+
+	if (args[0][0] == '/')
+	{
+		if (execve(args[0], args, environ) == -1)
+			perror("Error: failed to execute program");
+	}
+	else
+	{
+		result = (check_path(main_path, args[0]));
+		if (!result)
+			perror("Error");
+		if (execve(result, args, environ) == -1)
+			perror("Error: failed to execute program");
+	}
+	return (1);
+}
+
 /**
  * execute - executes a program
  * @args: a double pointer of command line arguments
@@ -10,25 +38,12 @@ int execute(char **args)
 {
 	pid_t child_pid;
 	int status;
-	char *result;
 
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		if(args[0][0] == '/')
-		{
-			if (execve(args[0], args, environ) == -1)
-				perror("Error: failed to execute program");
-		}
-		else
-		{
-			result = (check_path(main_path, args[0]));
-			if (!result)
-				perror("You done goofed!");
-			if (execve(result, args, environ) == -1)
-				perror("Error: failed to execute program");
-		}
-
+			check_command(args);
+			exit(0);
 	}
 	else if (child_pid == -1)
 	{

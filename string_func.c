@@ -63,7 +63,7 @@ char *_strdup(char *str)
 }
 
 /**
- * str_concat - concatenates two strings
+ * path_concat - concatenates directories and command
  * @s1: first string
  * @s2: second string
  *
@@ -92,4 +92,28 @@ char *path_concat(char *s1, char *s2)
 		s[x + y] = s2[y];
 	s[x + y] = '\0';
 	return (s);
+}
+
+/**
+ * _strcmp - compares 2 strings
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: Returns 0 if strings are same size. Positive difference if
+ * s1 is greater than s2. Negative difference if s1 is smaller than s2.
+ */
+
+int _strcmp(char *s1, char *s2)
+{
+	/* check both strings size and determine if one is larger*/
+	while ((*s1 == *s2) && *s1 != '\0' && *s2 != '\0')
+	{
+		s1++;
+		s2++;
+	}
+
+	if (*s1 == '\0' && *s2 == '\0')
+		return (0);
+	else
+		return ((int)(*s1 - *s2));
 }
