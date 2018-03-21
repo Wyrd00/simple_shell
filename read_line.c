@@ -11,7 +11,11 @@ char *read_line(void)
 	size_t n = 0;
 
 	write(STDOUT_FILENO, "$)> ", 4);
-	getline(&line, &n, stdin);
+	if (getline(&line, &n, stdin) <= 0)
+	{
+		perror("Error\n");
+		exit(99);
+	}
 	length = _strlen(line);
 	line[length - 1] = '\0';
 	return (line);
