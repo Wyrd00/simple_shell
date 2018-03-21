@@ -18,5 +18,7 @@ void loop(void)
 		args = tokenize(line, " ");
 		status = execute(args);
 	}
-	free (main_path);
+	free(line);
+	free(args);
+	free(main_path);
 }

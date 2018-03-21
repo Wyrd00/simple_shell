@@ -9,6 +9,15 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 
+/* Typedefs */
+typedef void (*builtin_func)(void);
+
+/* Path Structure */
+/**
+ * struct path_t - path node struct
+ * @dir: string containing directory
+ * @next: pointer to next node.
+ */
 typedef struct path
 {
 	char *dir;
@@ -39,5 +48,11 @@ int word_count(char *s);
 char *_getenv(char *name);
 path_t *make_path(void);
 char *check_path(path_t *head, char *command);
+
+/* Builtin Functions */
+void check_builtin(char **args);
+void _exit(void);
+void print_env(void);
+void _cd(char **args);
 
 #endif /* SIMPLE_SHELL */
