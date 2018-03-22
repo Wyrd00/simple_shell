@@ -95,6 +95,44 @@ char *path_concat(char *s1, char *s2)
 }
 
 /**
+ * _strcat - regular string concatenation w/ two strings
+ * @dest: first string
+ * @src: second string
+ *
+ * Return: returns a pointer to the concatenated string
+ */
+char *_strcat(char *dest, char *src)
+{
+        int i, j = 0;
+        int len1 = 0;
+	int len2 = 0;
+        char *result;
+
+        while (dest[len1])
+        {
+                len1++;
+        }
+        while (src[len2])
+        {
+                len2++;
+        }
+        result = malloc(sizeof(len1 + len2 + 2));
+
+        for (i = 0; dest[i] != '\0'; i++)
+        {
+                result[i] = dest[i];
+        }
+        for (j = 0; src[j] != '\0'; j++)
+        {
+                result[i] = src[j];
+                i++;
+        }
+        result[i] = '\0';
+        return (result);
+
+}
+
+/**
  * _strcmp - compares 2 strings
  * @s1: first string
  * @s2: second string
