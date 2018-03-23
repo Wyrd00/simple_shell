@@ -30,6 +30,10 @@ char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
+
+/*Memory Helper Functions*/
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /* Shell Loop Functions */
 char *read_line(void);
