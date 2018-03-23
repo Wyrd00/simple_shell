@@ -50,11 +50,13 @@ char *_getenv(char *name);
 path_t *make_path(void);
 char *check_path(path_t *head, char *command);
 char *path_concat(char *s1, char *s2);
+path_t *_environ(void);
 
 /* Builtin Functions */
 int check_builtin(char **args);
 void hsh_exit(void);
 void print_env(void);
 void _cd(char **args);
+void *_setenv(*char name, *char value);
 
 #endif /* SIMPLE_SHELL */
