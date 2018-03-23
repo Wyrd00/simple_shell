@@ -41,11 +41,12 @@ void loop(void);
 char *_strtok(char *src, const char *delim);
 int word_count(char *s);
 
-/* Environment Functions */
+/* PATH Functions */
 char *_getenv(char *name);
 path_t *make_path(void);
 char *check_path(path_t *head, char *command);
 char *path_concat(char *s1, char *s2);
+void free_path(path_t *head);
 
 /* Builtin Functions */
 int check_builtin(char **args);

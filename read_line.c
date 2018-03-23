@@ -10,7 +10,7 @@ char *read_line(void)
 	char *line = NULL;
 	size_t n = 0;
 
-	write(STDOUT_FILENO, "$)> ", 4);
+	write (1, "$ ", 2);
 	if (getline(&line, &n, stdin) <= 0)
 	{
 		perror("Error\n");
