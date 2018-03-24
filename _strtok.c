@@ -30,7 +30,6 @@ int is_delim(char c, const char *delim)
 char *_strtok(char *src, const char *delim)
 {
 	static char *s;
-	static unsigned int s_len;
 	unsigned int i = 0;
 	char *result = NULL;
 	int is_space = 0;
@@ -38,8 +37,7 @@ char *_strtok(char *src, const char *delim)
 	if (src)
 	{
 		s = src;
-		s_len = _strlen(s);
-		for (i = 0; i < s_len; i++)
+		for (i = 0; s[i]; i++)
 		{
 			if (is_delim(s[i], delim))
 				s[i] = '\0';

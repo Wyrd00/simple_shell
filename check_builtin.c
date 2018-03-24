@@ -5,11 +5,11 @@
  *
  * Return: returns the proper builtin funciton or NULL on failure
  */
-int check_builtin(char **args)
+int check_builtin(char **args, char *line)
 {
 	if (_strcmp(args[0], "exit") == 0)
 	{
-		hsh_exit();
+		hsh_exit(args, line);
 		return (0);
 	}
 	else if (_strcmp(args[0], "env") == 0)

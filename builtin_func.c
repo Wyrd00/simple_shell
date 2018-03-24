@@ -4,8 +4,18 @@
  * _exit - exits the current process
  *
  */
-void hsh_exit(void)
+void hsh_exit(char **args, char *line)
 {
+	unsigned int x = 0;
+
+	free(line);
+	while (args[x] != NULL)
+	{
+		free(args[x]);
+		x++;
+	}
+	free(args);
+	free_path(main_path);
 	exit(0);
 }
 
