@@ -46,5 +46,6 @@ char **tokenize(char *buffer, char *delim)
 		token = _strtok(NULL, delim);
 	}
 	words[x] = NULL;
+	free(bufc);
 	return (words);
 }

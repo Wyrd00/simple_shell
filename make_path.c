@@ -42,6 +42,7 @@ path_t *make_path(void)
 		else
 			temp->next = NULL;
 	}
+	free(path_name);
 	return (head);
 }
 
@@ -57,5 +58,6 @@ void free_path(path_t *head)
 		return;
 	if (head->next != NULL)
 		free_path(head->next);
+	free(head->dir);
 	free(head);
 }

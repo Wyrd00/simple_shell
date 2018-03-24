@@ -53,8 +53,8 @@ char *path_concat(char *s1, char *s2);
 void free_path(path_t *head);
 
 /* Builtin Functions */
-int check_builtin(char **args);
-void hsh_exit(void);
+int check_builtin(char **args, char *line);
+void hsh_exit(char **args, char *line);
 void print_env(void);
 void _cd(char **args);
 
