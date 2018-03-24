@@ -7,7 +7,7 @@
 char *read_line(void)
 {
 	char *line = NULL;
-	char *result;
+	unsigned int len = 0;
 	size_t n = 0;
 
 	write (1, "$ ", 2);
@@ -16,7 +16,7 @@ char *read_line(void)
 		perror("Error\n");
 		exit(99);
 	}
-	result = _strtok(line, "\n");
-	free(line);
-	return (result);
+	len = _strlen(line);
+	line[len - 1] = '\0';
+	return (line);
 }
