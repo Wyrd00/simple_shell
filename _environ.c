@@ -16,13 +16,15 @@ path_t *_environ(void)
 	while (environ[x])
 	{
 		vagabond->dir = environ[x];
-//		printf("environ[%d] = %s\n", x, environ[x]);
-		x++;
 		if (environ[x] != NULL)
 		{
 			vagabond->next = malloc(sizeof(path_t));
 			vagabond = vagabond->next;
+
 		}
+		else
+			vagabond->next = NULL;
+		x++;
 	}
 	return (head);
 }

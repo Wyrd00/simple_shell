@@ -4,8 +4,18 @@
  * _exit - exits the current process
  *
  */
-void hsh_exit(void)
+void hsh_exit(char **args, char *line)
 {
+	unsigned int x = 0;
+
+	free(line);
+	while (args[x] != NULL)
+	{
+		free(args[x]);
+		x++;
+	}
+	free(args);
+	free_path(main_path);
 	exit(0);
 }
 
@@ -15,14 +25,14 @@ void hsh_exit(void)
  */
 void print_env(void)
 {
-	unsigned int x;
+	path_t *temp;
 
-	x = 0;
-	while (environ[x])
+	temp = env;
+	while (env)
 	{
-		write(1, environ[x], _strlen(environ[x]));
+		write(1, env->dir, _strlen(env->dir));
 		write(1, "\n", 1);
-		x++;
+		temp = temp->next;
 	}
 }
 

@@ -29,7 +29,7 @@ char **tokenize(char *buffer, char *delim)
 
 	while (token)
 	{
-		words[x] = malloc(sizeof(char) * _strlen(token) + 1);
+	  words[x] = malloc(sizeof(char) * (_strlen(token) + 1));
 		if (!words[x])
 		{
 			perror("Error doing erroneous things\n");
@@ -46,5 +46,6 @@ char **tokenize(char *buffer, char *delim)
 		token = _strtok(NULL, delim);
 	}
 	words[x] = NULL;
+	free(bufc);
 	return (words);
 }

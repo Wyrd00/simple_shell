@@ -5,11 +5,11 @@
  *
  * Return: returns the proper builtin funciton or NULL on failure
  */
-int check_builtin(char **args)
+int check_builtin(char **args, char *line)
 {
 	if (_strcmp(args[0], "exit") == 0)
 	{
-		hsh_exit();
+		hsh_exit(args, line);
 		return (0);
 	}
 	else if (_strcmp(args[0], "env") == 0)
@@ -19,7 +19,7 @@ int check_builtin(char **args)
 	}
 	else if (_strcmp(args[0], "setenv") == 0)
 	{
-		printf("This does setenv\n");
+		_setenv(args[1], args[2]);
 		return (0);
 	}
 	else if (_strcmp(args[0], "unsetenv") == 0)

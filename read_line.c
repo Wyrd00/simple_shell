@@ -6,17 +6,17 @@
  */
 char *read_line(void)
 {
-	int length;
 	char *line = NULL;
+	unsigned int len = 0;
 	size_t n = 0;
 
-	write(STDOUT_FILENO, "$)> ", 4);
+	write (1, "$ ", 2);
 	if (getline(&line, &n, stdin) <= 0)
 	{
 		perror("Error\n");
 		exit(99);
 	}
-	length = _strlen(line);
-	line[length - 1] = '\0';
+	len = _strlen(line);
+	line[len - 1] = '\0';
 	return (line);
 }

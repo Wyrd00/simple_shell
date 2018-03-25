@@ -32,7 +32,7 @@ int _strlen(char *s)
 {
 	int x = 0;
 
-	while (*(s + x) != '\0')
+	while (s[x] != '\0')
 		x++;
 	return (x);
 }
@@ -56,9 +56,9 @@ char *_strdup(char *str)
 	s = malloc(sizeof(char) * (_strlen(str) + 1));
 	if (s == NULL)
 		return (NULL);
-	for (x = 0; *(str + x) != '\0'; x++)
-		*(s + x) = *(str + x);
-	*(s + x) = '\0';
+	for (x = 0; str[x] != '\0'; x++)
+		s[x] = str[x];
+	s[x] = '\0';
 	return (s);
 }
 
