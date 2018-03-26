@@ -10,11 +10,11 @@ char *read_line(void)
 	unsigned int len = 0;
 	size_t n = 0;
 
-	write (1, "$ ", 2);
+	if (isatty(STDIN_FILENO) == 1)
+		write (1, "$ ", 2);
 	if (getline(&line, &n, stdin) <= 0)
 	{
-		perror("Error\n");
-		exit(99);
+		exit(0);
 	}
 	len = _strlen(line);
 	line[len - 1] = '\0';
