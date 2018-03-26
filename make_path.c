@@ -61,3 +61,17 @@ void free_path(path_t *head)
 	free(head->dir);
 	free(head);
 }
+
+/**
+ * free_environ - frees a linked list
+ * @head: linked list
+ *
+ */
+void free_env(path_t *head)
+{
+	if (head == NULL)
+		return;
+	if (head->next != NULL)
+		free_path(head->next);
+	free(head);
+}

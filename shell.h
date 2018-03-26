@@ -52,7 +52,10 @@ path_t *make_path(void);
 char *check_path(path_t *head, char *command);
 char *path_concat(char *s1, char *s2);
 path_t *_environ(void);
+
+/* Memory Functions */
 void free_path(path_t *head);
+void free_env(path_t *head);
 
 /* Builtin Functions */
 int check_builtin(char **args, char *line);
