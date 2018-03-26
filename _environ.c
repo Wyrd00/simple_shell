@@ -15,7 +15,7 @@ path_t *_environ(void)
 	vagabond = head;
 	while (environ[x])
 	{
-		vagabond->dir = environ[x];
+		vagabond->dir = _strdup(environ[x]);
 		if (environ[x + 1] != NULL)
 		{
 			vagabond->next = malloc(sizeof(path_t));
