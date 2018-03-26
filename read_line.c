@@ -13,8 +13,7 @@ char *read_line(void)
 	write (1, "$ ", 2);
 	if (getline(&line, &n, stdin) <= 0)
 	{
-		perror("Error\n");
-		exit(99);
+		exit(0);
 	}
 	len = _strlen(line);
 	line[len - 1] = '\0';
