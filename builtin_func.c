@@ -30,7 +30,7 @@ void print_env(void)
 	temp = env;
 	while (temp)
 	{
-		write(1, env->dir, _strlen(env->dir));
+		write(1, temp->dir, _strlen(temp->dir));
 		write(1, "\n", 1);
 		temp = temp->next;
 	}

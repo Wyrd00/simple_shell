@@ -33,6 +33,5 @@ char *_getenv(char *name)
 	copy = _strdup(match);
 	_strtok(copy, delim);
 	match = _strtok(NULL, delim);
-//	free(copy);
 	return (match);
 }

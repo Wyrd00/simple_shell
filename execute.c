@@ -20,9 +20,9 @@ int check_command(char **args)
 	{
 		result = (check_path(main_path, args[0]));
 		if (!result)
-			perror("Error");
+			exit(127);
 		if (execve(result, args, environ) == -1)
-			perror("Error: failed to execute program");
+			exit(127);
 	}
 	return (1);
 }
