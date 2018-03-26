@@ -44,7 +44,7 @@ char *_strtok(char *src, const char *delim)
 		}
 	}
 
-	if (*s == '\0')
+	if (s == NULL || *s == '\0')
 		return (NULL);
 	result = s;
 	i = _strlen(s);

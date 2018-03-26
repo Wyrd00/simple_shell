@@ -7,27 +7,32 @@
  */
 char *_getenv(char *name)
 {
-	unsigned int x, y;
-	char *match, *delim;
+	unsigned int y;
+	char *match, *delim, *copy;
+	path_t *temp;
 
-	match  = NULL;
+	match = NULL;
 	delim = "=";
-	x = 0;
-	while (environ[x])
+	temp = env;
+
+	while (temp)
 	{
 		y = 0;
 		while (name[y])
 		{
-			if (name[y] != environ[x][y])
+			if (name[y] != temp->dir[y])
 				break;
-			if (name[y + 1] == '\0' && environ[x][y + 1] == '=')
-				match = environ[x];
+			if (name[y + 1] == '\0' && temp->dir[y + 1] == '=')
+				match = temp->dir;
 			y++;
 		}
-		x++;
 		if (match)
 			break;
+		temp = temp->next;
 	}
-	_strtok(match, delim);
-	return (_strtok(NULL, delim));
+	copy = _strdup(match);
+	_strtok(copy, delim);
+	match = _strtok(NULL, delim);
+//	free(copy);
+	return (match);
 }

@@ -25,14 +25,14 @@ void hsh_exit(char **args, char *line)
  */
 void print_env(void)
 {
-	unsigned int x;
+	path_t *temp;
 
-	x = 0;
-	while (environ[x])
+	temp = env;
+	while (temp)
 	{
-		write(1, environ[x], _strlen(environ[x]));
+		write(1, env->dir, _strlen(env->dir));
 		write(1, "\n", 1);
-		x++;
+		temp = temp->next;
 	}
 }
 

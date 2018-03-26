@@ -19,7 +19,7 @@ int check_builtin(char **args, char *line)
 	}
 	else if (_strcmp(args[0], "setenv") == 0)
 	{
-		printf("This does setenv\n");
+		_setenv(args[1], args[2]);
 		return (0);
 	}
 	else if (_strcmp(args[0], "unsetenv") == 0)

@@ -10,6 +10,9 @@ void loop(void)
 	char **args;
 	int status, x;
 
+	env = _environ();
+	main_path = make_path();
+  
 	status = 1;
 	while (status)
 	{
@@ -26,4 +29,6 @@ void loop(void)
 		free(line);
 		free(args);
 	}
+	free_path(main_path);
+	free(env);
 }
