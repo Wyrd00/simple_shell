@@ -20,10 +20,8 @@ int locate_env(char *name)
 		while (name[y] == temp->dir[y])
 		{
 			y++;
-		}
-		if (name[y] == '\0')
-		{
-			break;
+			if (name[y + 1] == '\0' && (temp->dir)[y + 1] == '=')
+				return (x);
 		}
 		x++;
 		temp = temp->next;
@@ -57,7 +55,7 @@ void _setenv(char *name, char *value)
 
 	holder = env;
 	temp = env;
-	if (curr_i < 0)
+	if (curr_i >= 0)
 	{
 		while (counter != (curr_i - 1)) /*stop one node prior to curr_value*/
 		{
@@ -79,7 +77,7 @@ void _setenv(char *name, char *value)
 		}
 		new->dir = _strcat(_strcat(name, "="), value);
 		temp->next = new;
-		new = NULL;
+		new->next = NULL;
 	}
 }
 /**
