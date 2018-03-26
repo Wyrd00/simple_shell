@@ -20,11 +20,9 @@ path_t *_environ(void)
 		{
 			vagabond->next = malloc(sizeof(path_t));
 			vagabond = vagabond->next;
-
 		}
-		else
-			vagabond->next = NULL;
 		x++;
 	}
+	vagabond->next = NULL;
 	return (head);
 }

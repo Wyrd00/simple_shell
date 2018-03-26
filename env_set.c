@@ -7,14 +7,17 @@
  * Return: 0 if success, -1 if fail
  */
 
-int locate_env(path_t *env, char *name)
+int locate_env(char *name)
 {
+	path_t *temp;
 	int x = 0; 
 	int y = 0;
 
-	while (env)
+	temp = env;
+	while (temp)
 	{
-		while (name[y] == (env->dir)[y])
+		y = 0;
+		while (name[y] == temp->dir[y])
 		{
 			y++;
 		}
@@ -22,11 +25,11 @@ int locate_env(path_t *env, char *name)
 		{
 			break;
 		}
-		env = env->next;
 		x++;
+		temp = temp->next;
+		if (temp == NULL)
+			return (-1);
 	}
-	if (env == NULL)
-		return (-1);
 	return (x);
 }
 
@@ -39,37 +42,34 @@ int locate_env(path_t *env, char *name)
  */
 void _setenv(char *name, char *value)
 {
-	path_t *head;
-	path_t *temp, *new;
+	path_t *holder, *temp, *new;
 	int curr_i = 0;
 	int counter = 0;
 
-	head = env;
-
 	/*returns a pointer to the value of name*/
-	curr_i = locate_env(env, name);
+	curr_i = locate_env(name);
 
 	new = malloc(sizeof(path_t));
 	if (!new)
 	{
 		perror("99 Problems and you are one of them\n");
 	}
-	
-	env = head;
-	temp = head;
-	if (curr_i != -1)
+
+	holder = env;
+	temp = env;
+	if (curr_i < 0)
 	{
 		while (counter != (curr_i - 1)) /*stop one node prior to curr_value*/
 		{
 			temp = temp->next;
-			env = env->next;
+			holder = holder->next;
 			counter++;
 		}
-		env = env->next;
+		holder = holder->next; /*pointing to node to be deleted*/
 		new->dir = _strcat(_strcat(name, "="), value);
 		new->next = temp->next->next;
 		temp->next = new;
-		free(env);
+		free(holder);
 	}
 	else /*add the new environ at the end*/
 	{

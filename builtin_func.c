@@ -28,7 +28,7 @@ void print_env(void)
 	path_t *temp;
 
 	temp = env;
-	while (env)
+	while (temp)
 	{
 		write(1, env->dir, _strlen(env->dir));
 		write(1, "\n", 1);

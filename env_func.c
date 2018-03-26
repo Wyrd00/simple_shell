@@ -9,23 +9,26 @@ char *_getenv(char *name)
 {
 	unsigned int y;
 	char *match, *delim, *copy;
+	path_t *temp;
 
 	match = NULL;
 	delim = "=";
-	while (env)
+	temp = env;
+
+	while (temp)
 	{
 		y = 0;
 		while (name[y])
 		{
-			if (name[y] != env->dir[y])
+			if (name[y] != temp->dir[y])
 				break;
-			if (name[y + 1] == '\0' && env->dir[y + 1] == '=')
-				match = env->dir;
+			if (name[y + 1] == '\0' && temp->dir[y + 1] == '=')
+				match = temp->dir;
 			y++;
 		}
 		if (match)
 			break;
-		env = env->next;
+		temp = temp->next;
 	}
 	copy = _strdup(match);
 	_strtok(copy, delim);
