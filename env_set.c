@@ -41,8 +41,16 @@ int locate_env(char *name)
 void _setenv(char *name, char *value)
 {
 	path_t *holder, *temp, *new;
+	char *concat_value, *final_value;
+	int concat_len = 0;
 	int curr_i = 0;
 	int counter = 0;
+
+	if (!name || !value)
+	{
+		perror("Error: Missing name or value");
+		exit(0);
+	}
 
 	/*returns a pointer to the value of name*/
 	curr_i = locate_env(name);
@@ -52,6 +60,11 @@ void _setenv(char *name, char *value)
 	{
 		perror("99 Problems and you are one of them\n");
 	}
+
+	concat_value = _strcat(name, "=");
+	concat_len = _strlen(concat_value);
+	final_value = _realloc(concat_value, concat_len, (concat_len + _strlen(value) + 1));
+	_strncpy(final_value, value, concat_len);
 
 	holder = env;
 	temp = env;
@@ -64,7 +77,7 @@ void _setenv(char *name, char *value)
 			counter++;
 		}
 		holder = holder->next; /*pointing to node to be deleted*/
-		new->dir = _strcat(_strcat(name, "="), value);
+		new->dir = final_value;
 		new->next = temp->next->next;
 		temp->next = new;
 		free(holder);
@@ -75,7 +88,7 @@ void _setenv(char *name, char *value)
 		{
 			temp = temp->next;
 		}
-		new->dir = _strcat(_strcat(name, "="), value);
+		new->dir = final_value; 
 		temp->next = new;
 		new->next = NULL;
 	}
