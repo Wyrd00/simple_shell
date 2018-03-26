@@ -46,10 +46,10 @@ void _setenv(char *name, char *value)
 	int curr_i = 0;
 	int counter = 0;
 
-	if (!name)
+	if (!name || !value)
 	{
 		perror("Error: Missing name or value");
-		exit(127);
+		exit(0);
 	}
 
 	/*returns a pointer to the value of name*/
