@@ -12,7 +12,6 @@ char *_getenv(char *name)
 	path_t *temp;
 
 	match = NULL;
-//	delim = "=";
 	temp = env;
 
 	while (temp)
@@ -30,9 +29,6 @@ char *_getenv(char *name)
 			break;
 		temp = temp->next;
 	}
-//	copy = _strdup(match);
-//	_strtok(copy, delim);
-//	match = _strtok(NULL, delim);
 	copy = malloc(sizeof(char *) * (_strlen(match) - 4));
 	if (!copy)
 		return (NULL);
