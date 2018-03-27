@@ -1,7 +1,9 @@
 #include "shell.h"
 
 /**
- * _exit - exits the current process
+ * hsh_exit - exits the current process
+ * @args: arguments
+ * @line: user input
  *
  */
 void hsh_exit(char **args, char *line)

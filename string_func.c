@@ -103,90 +103,32 @@ char *path_concat(char *s1, char *s2)
  */
 char *_strcat(char *dest, char *src)
 {
-        int i, j = 0;
-        int len1 = 0;
+	int i, j = 0;
+	int len1 = 0;
 	int len2 = 0;
-        char *result;
+	char *result;
 
-        while (dest[len1])
-        {
-                len1++;
-        }
-        while (src[len2])
-        {
-                len2++;
-        }
-        result = malloc(sizeof(len1 + len2 + 2));
-
-        for (i = 0; dest[i] != '\0'; i++)
-        {
-                result[i] = dest[i];
-        }
-        for (j = 0; src[j] != '\0'; j++)
-        {
-                result[i] = src[j];
-                i++;
-        }
-        result[i] = '\0';
-        return (result);
-
-}
-
-/**
- * _strcmp - compares 2 strings
- * @s1: first string
- * @s2: second string
- *
- * Return: Returns 0 if strings are same size. Positive difference if
- * s1 is greater than s2. Negative difference if s1 is smaller than s2.
- */
-
-int _strcmp(char *s1, char *s2)
-{
-	/* check both strings size and determine if one is larger*/
-	while ((*s1 == *s2) && *s1 != '\0' && *s2 != '\0')
+	while (dest[len1])
 	{
-		s1++;
-		s2++;
+		len1++;
 	}
+	while (src[len2])
+	{
+		len2++;
+	}
+	result = malloc(sizeof(len1 + len2 + 2));
 
-	if (*s1 == '\0' && *s2 == '\0')
-		return (0);
-	else
-		return ((int)(*s1 - *s2));
+	for (i = 0; dest[i] != '\0'; i++)
+	{
+		result[i] = dest[i];
+	}
+	for (j = 0; src[j] != '\0'; j++)
+	{
+		result[i] = src[j];
+		i++;
+	}
+	result[i] = '\0';
+	return (result);
+
 }
 
-/**
- * *_strncpy - copy string starting at specific index
- * @dest: pointer to dest
- * @src: pointer to src
- * @n: len of dest
- *
- * Return: copied string
- */
-char *_strncpy(char *dest, char *src, int n)
-{
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++, n++)
-		dest[n] = src[i];
-	dest[n] = '\0';
-	return (dest);
-}
-/**
-    * *_strncpy - copy string starting at specific index of SRC
-    * @dest: pointer to dest
-    * @src: pointer to src
-    * @n: len of dest
-    *
-    * Return: copied string
-    */
-char *_strncpy2(char *dest, char *src, int n)
-{
-	int i;
-
-	for (i = 0; src[n] != '\0'; i++, n++)
-		dest[i] = src[n];
-	dest[i] = '\0';
-	return (dest);
-}

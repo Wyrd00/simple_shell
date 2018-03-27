@@ -10,7 +10,7 @@ char *read_line(void)
 	unsigned int len = 0;
 	size_t n = 0;
 
-	write (1, "$ ", 2);
+	write(1, "$ ", 2);
 	if (getline(&line, &n, stdin) <= 0)
 	{
 		exit(0);

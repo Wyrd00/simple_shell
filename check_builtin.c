@@ -2,6 +2,7 @@
 /**
  * check_builtin - checks if builtin has been called
  * @args: argv array
+ * @line: user input
  *
  * Return: returns the proper builtin funciton or NULL on failure
  */

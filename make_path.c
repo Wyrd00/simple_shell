@@ -35,7 +35,7 @@ path_t *make_path(void)
 			if (!temp->next)
 			{
 				free_path(head);
-				return(NULL);
+				return (NULL);
 			}
 			temp = temp->next;
 		}

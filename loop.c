@@ -4,7 +4,7 @@
  *
  */
 
-void loop(void)
+void loop(char *program)
 {
 	char *line;
 	char **args;
@@ -12,19 +12,25 @@ void loop(void)
 
 	env = _environ();
 	main_path = make_path();
-  
+
 	status = 1;
 	while (status)
 	{
+		line_num++;
 		line = read_line();
+		if (_strlen(line) == 0)
+		{
+			free(line);
+			continue;
+		}
 		args = tokenize(line, " ");
 		if (check_builtin(args, line) == 1)
-			status = execute(args);
+			status = execute(args, program);
 		x = 0;
 		while (args[x] != NULL)
 		{
-				free(args[x]);
-				x++;
+			free(args[x]);
+			x++;
 		}
 		free(line);
 		free(args);

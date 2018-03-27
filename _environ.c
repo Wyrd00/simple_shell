@@ -1,7 +1,8 @@
 #include "shell.h"
 /**
- * _environ - 
- * 
+ * _environ - builds an environment linked list
+ *
+ * Return: returns a pointer to the head of the linked list
  */
 path_t *_environ(void)
 {
