@@ -132,6 +132,7 @@ char *_strcat(char *dest, char *src)
 
 }
 
+
 /**
  * _strcmp - compares 2 strings
  * @s1: first string
@@ -190,3 +191,4 @@ char *_strncpy2(char *dest, char *src, int n)
 	dest[i] = '\0';
 	return (dest);
 }
+

@@ -29,9 +29,11 @@ char *_getenv(char *name)
 			break;
 		temp = temp->next;
 	}
+
 	copy = malloc(sizeof(char *) * (_strlen(match) - 4));
 	if (!copy)
 		return (NULL);
 	_strncpy2(copy, match, 5);
+
 	return (copy);
 }

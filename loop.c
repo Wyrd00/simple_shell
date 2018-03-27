@@ -12,23 +12,29 @@ void loop(void)
 
 	env = _environ();
 	main_path = make_path();
-  
 	status = 1;
 	while (status)
 	{
 		line = read_line();
+		if (_strlen(line) == 0)
+		{
+			free(line);
+			continue;
+		}
 		args = tokenize(line, " ");
 		if (check_builtin(args, line) == 1)
 			status = execute(args);
 		x = 0;
 		while (args[x] != NULL)
 		{
-				free(args[x]);
+			free(args[x]);
 				x++;
 		}
+
 		free(line);
 		free(args);
 	}
 	free_path(main_path);
 	free_path(env);
+
 }
