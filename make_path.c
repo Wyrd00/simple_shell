@@ -17,7 +17,6 @@ path_t *make_path(void)
 		return (NULL);
 
 	path_name = _getenv("PATH");
-	printf("main pathy = %s\n", path_name);
 
 	if (!path_name)
 	{
