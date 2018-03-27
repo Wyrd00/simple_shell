@@ -173,3 +173,20 @@ char *_strncpy(char *dest, char *src, int n)
 	dest[n] = '\0';
 	return (dest);
 }
+/**
+    * *_strncpy - copy string starting at specific index of SRC
+    * @dest: pointer to dest
+    * @src: pointer to src
+    * @n: len of dest
+    *
+    * Return: copied string
+    */
+char *_strncpy2(char *dest, char *src, int n)
+{
+	int i;
+
+	for (i = 0; src[n] != '\0'; i++, n++)
+		dest[i] = src[n];
+	dest[i] = '\0';
+	return (dest);
+}

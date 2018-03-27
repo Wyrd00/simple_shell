@@ -16,7 +16,7 @@ path_t *make_path(void)
 	if (!temp)
 		return (NULL);
 
-	path_name = _strdup(_getenv("PATH"));
+	path_name = _getenv("PATH");
 	if (!path_name)
 	{
 		free(temp);

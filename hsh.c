@@ -6,8 +6,6 @@
  */
 int main(void)
 {
-	main_path = make_path();
 	loop();
-	free_path(main_path);
 	return (0);
 }

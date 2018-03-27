@@ -30,5 +30,5 @@ void loop(void)
 		free(args);
 	}
 	free_path(main_path);
-	free(env);
+	free_path(env);
 }
