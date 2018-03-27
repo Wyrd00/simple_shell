@@ -8,11 +8,10 @@
 char *_getenv(char *name)
 {
 	unsigned int y;
-	char *match, *delim, *copy;
+	char *match, *copy;
 	path_t *temp;
 
 	match = NULL;
-	delim = "=";
 	temp = env;
 
 	while (temp)
@@ -30,8 +29,11 @@ char *_getenv(char *name)
 			break;
 		temp = temp->next;
 	}
-	copy = _strdup(match);
-	_strtok(copy, delim);
-	match = _strtok(NULL, delim);
-	return (match);
+	copy = malloc(sizeof(char *) * (_strlen(match - 4)));
+	if (!copy)
+		return (NULL);
+	_strncpy2(copy, match, 5);
+	printf("copy = %s, %d\n", copy, _strlen(copy));
+//	match = _strtok(NULL, delim);
+	return (copy);
 }

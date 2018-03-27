@@ -92,6 +92,7 @@ void _setenv(char *name, char *value)
 		temp->next = new;
 		new->next = NULL;
 	}
+	free(concat_value);
 }
 /**
  * _unsetenv - delete an environment variable

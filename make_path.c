@@ -16,7 +16,9 @@ path_t *make_path(void)
 	if (!temp)
 		return (NULL);
 
-	path_name = _strdup(_getenv("PATH"));
+	path_name = _getenv("PATH");
+	printf("main pathy = %s\n", path_name);
+
 	if (!path_name)
 	{
 		free(temp);
@@ -24,9 +26,11 @@ path_t *make_path(void)
 	}
 
 	token = _strtok(path_name, ":");
+
 	head = temp;
 	while (token)
 	{
+		printf("TOKEN = %s\n", token);
 		temp->dir = _strdup(token);
 		token = _strtok(NULL, ":");
 		if (token)
