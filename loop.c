@@ -23,7 +23,7 @@ void loop(char *program)
 			free(line);
 			continue;
 		}
-		args = tokenize(line, " ");
+		args = tokenize(line, "\n ");
 		if (check_builtin(args, line) == 1)
 			status = execute(args, program);
 		x = 0;
