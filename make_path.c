@@ -29,7 +29,6 @@ path_t *make_path(void)
 	head = temp;
 	while (token)
 	{
-		printf("TOKEN = %s\n", token);
 		temp->dir = _strdup(token);
 		token = _strtok(NULL, ":");
 		if (token)
