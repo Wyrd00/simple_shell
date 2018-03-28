@@ -6,19 +6,26 @@ The simple shell is a command line interpreter that was first conceived by Ken T
 ## VERSION
 This version of simple shell has been used on Ubuntu 14.04.5 LTS
 
+## FILE ARCHITECTURE
+
 ## TO RUN:
 Clone this repo:
 ```git clone "https://github.com/set808/simple_shell.git"```
+
 Compile:
 ```gcc -Wall -Werror -Wextra -pedantic *.c -o hsh```
+
 This shell can be run in interactive mode:
 ```./hsh```
+
 Or non-interactive mode: 
 ```echo ls -l | ./hsh```
 
 ## EXAMPLE
 ```$ ./hsh```
+
 ```$ ls -la```
+
 ```
 $ total 112
 -rw-rw-r-- 1 vagrant vagrant   642 Mar 27 03:53 builtin_func.c
@@ -43,6 +50,6 @@ $ total 112
 -rw-rw-r-- 1 vagrant vagrant   290 Mar 24 23:28 word_count.c
 ```
 ## Authors
-Amy Tai | GitHub | Twitter | LinkedIn
+Amy Tai | [GitHub](https://github.com/Wyrd00) | [Twitter](https://twitter.com/flyaway0120) | [LinkedIn](https://www.linkedin.com/in/Wyrd00/)
 
-Spence Taylor | GitHub | Twitter | LinkedIn
+Spence Taylor | [GitHub](https://github.com/set808) | [Twitter](https://twitter.com/mrspencertaylor) | [LinkedIn](https://www.linkedin.com/in/setaylor808/)
