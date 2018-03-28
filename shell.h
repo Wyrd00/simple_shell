@@ -41,8 +41,8 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 /* Shell Loop Functions */
 char *read_line(void);
 char **tokenize(char *buffer, char *delim);
-int execute(char **args);
-void loop(void);
+int execute(char **args, int count, char *program);
+void loop(char *program);
 
 /* Tokenize Functions*/
 char *_strtok(char *src, const char *delim);

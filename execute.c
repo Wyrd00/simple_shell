@@ -7,7 +7,7 @@
  * Return: returns something
  */
 
-int check_command(char **args)
+int check_command(char **args, char *program)
 {
 	char *result;
 
@@ -34,7 +34,7 @@ int check_command(char **args)
  * Return: always returns 1
  */
 
-int execute(char **args)
+int execute(char **args,  char *program)
 {
 	pid_t child_pid;
 	int status;
@@ -42,8 +42,8 @@ int execute(char **args)
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-			check_command(args);
-			exit(0);
+		check_command(args, program);
+		exit(0);
 	}
 	else if (child_pid == -1)
 	{

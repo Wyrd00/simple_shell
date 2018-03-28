@@ -2,7 +2,6 @@
 
 /**
  * locate_env - find env associated with name
- * @env: environ
  * @name: name of string to be found
  * Return: 0 if success, -1 if fail
  */
@@ -10,7 +9,7 @@
 int locate_env(char *name)
 {
 	path_t *temp;
-	int x = 0; 
+	int x = 0;
 	int y = 0;
 
 	temp = env;
@@ -88,26 +87,10 @@ void _setenv(char *name, char *value)
 		{
 			temp = temp->next;
 		}
-		new->dir = final_value; 
+		new->dir = final_value;
 		temp->next = new;
 		new->next = NULL;
 	}
 	free(concat_value);
 }
-/**
- * _unsetenv - delete an environment variable
- * @name: key to be deleted
- *
- * Return: 0 if success, -1 if fail
- */
 
-/*int *_unsetenv(char *name)
-{
-	char *remove;
-
-	if (!remove)
-	{
-		perror("Nothing to remove homie\n")
-	}
-	return (0);
-}*/
