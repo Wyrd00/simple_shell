@@ -65,7 +65,7 @@ void free_path(path_t *head)
 }
 
 /**
- * free_environ - frees a linked list
+ * free_env - frees a linked list
  * @head: linked list
  *
  */

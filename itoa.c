@@ -25,7 +25,7 @@ int _numlen(int n)
 
 char *_itoa(int num)
 {
-	int digit = 0; 
+	int digit = 0;
 	int i = 0;
 	char *str;
 	int divisor = 1000000000;

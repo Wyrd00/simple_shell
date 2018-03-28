@@ -1,7 +1,8 @@
 #include "shell.h"
-int line_num = 0;
 /**
  * main - super simple shell
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
  * Return: always 0
  */

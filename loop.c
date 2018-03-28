@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
  * loop - shell loop
+ * @program: name of shell
  *
  */
 
@@ -12,6 +13,7 @@ void loop(char *program)
 
 	env = _environ();
 	main_path = make_path();
+	line_num = 0;
 
 	status = 1;
 	while (status)

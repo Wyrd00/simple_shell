@@ -1,20 +1,15 @@
 #include "shell.h"
 /**
- * __error - handle all error 
- * @args: arguments passed in 
+ * __error - handle all error
+ * @args: arguments passed in
  * @cmd: command
  * @code: specific code
  */
 void __error(char **args, char *cmd, int code)
 {
 	char *str_num;
-	str_num = _itoa(line_num);
-//	printf("line_num = %d\n", line_num);
-//	printf("arg len - %d\n", _strlen(args[0]));
-//	printf("str num - %s\n", str_num);
-//	printf("str_num len - %d\n", _strlen(str_num));
-//	printf("cmd len - %d\n", _strlen(cmd));
 
+	str_num = _itoa(line_num);
 	write(STDOUT_FILENO, cmd, _strlen(cmd));
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, str_num, _strlen(str_num));

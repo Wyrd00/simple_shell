@@ -23,7 +23,7 @@ typedef struct path
 
 /* Global Variables */
 extern char **environ;
-extern int line_num;
+int line_num;
 path_t *main_path;
 path_t *env;
 

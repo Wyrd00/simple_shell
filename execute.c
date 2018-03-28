@@ -3,6 +3,7 @@
 /**
  * check_command - checks if command is valid
  * @args: argument vector
+ * @program: name of shell
  *
  * Return: returns something
  */
@@ -30,6 +31,7 @@ int check_command(char **args, char *program)
 /**
  * execute - executes a program
  * @args: a double pointer of command line arguments
+ * @program: name of shell
  *
  * Return: always returns 1
  */

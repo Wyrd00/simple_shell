@@ -43,7 +43,7 @@ char *_strncpy(char *dest, char *src, int n)
 }
 
 /**
- * *_strncpy - copy string starting at specific index of SRC
+ * *_strncpy2 - copy string starting at specific index of SRC
  * @dest: pointer to dest
  * @src: pointer to src
  * @n: len of dest
