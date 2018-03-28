@@ -23,6 +23,7 @@ typedef struct path
 
 /* Global Variables */
 extern char **environ;
+extern int line_num;
 path_t *main_path;
 path_t *env;
 
@@ -34,6 +35,7 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strncpy(char *dest, char *src, int n);
 char *_strncpy2(char *dest, char *src, int n);
+char *_itoa(int num);
 
 /*Memory Helper Functions*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -41,7 +43,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 /* Shell Loop Functions */
 char *read_line(void);
 char **tokenize(char *buffer, char *delim);
-int execute(char **args, int count, char *program);
+int execute(char **args, char *program);
 void loop(char *program);
 
 /* Tokenize Functions*/
@@ -65,5 +67,8 @@ void hsh_exit(char **args, char *line);
 void print_env(void);
 void _cd(char **args);
 void _setenv(char *name, char *value);
+
+/* Error Handling */
+void __error(char **args, char *program, int code);
 
 #endif /* SIMPLE_SHELL */

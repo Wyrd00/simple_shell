@@ -14,15 +14,15 @@ int check_command(char **args, char *program)
 	if (args[0][0] == '/')
 	{
 		if (execve(args[0], args, environ) == -1)
-			perror("Error: failed to execute program");
+			__error(args, program, 3);
 	}
 	else
 	{
 		result = (check_path(main_path, args[0]));
 		if (!result)
-			exit(127);
+			__error(args, program, 1);
 		if (execve(result, args, environ) == -1)
-			exit(127);
+			__error(args, program, 2);
 	}
 	return (1);
 }
@@ -34,7 +34,7 @@ int check_command(char **args, char *program)
  * Return: always returns 1
  */
 
-int execute(char **args,  char *program)
+int execute(char **args, char *program)
 {
 	pid_t child_pid;
 	int status;
