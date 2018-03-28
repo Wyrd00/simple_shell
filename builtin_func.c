@@ -19,6 +19,7 @@ void hsh_exit(char **args, char *line)
 	free(args);
 	free_path(main_path);
 	free_path(env);
+
 	exit(0);
 }
 

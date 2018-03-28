@@ -31,10 +31,13 @@ void loop(char *program)
 		{
 			free(args[x]);
 			x++;
+
 		}
+
 		free(line);
 		free(args);
 	}
 	free_path(main_path);
 	free_path(env);
+
 }
