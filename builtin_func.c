@@ -10,13 +10,16 @@ void hsh_exit(char **args, char *line)
 {
 	unsigned int x = 0;
 
-	free(line);
+	if (line)
+		free(line);
 	while (args[x] != NULL)
 	{
-		free(args[x]);
+		if (args[x])
+			free(args[x]);
 		x++;
 	}
-	free(args);
+	if (args)
+		free(args);
 	free_path(main_path);
 	free_path(env);
 

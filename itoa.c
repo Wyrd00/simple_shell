@@ -31,7 +31,6 @@ char *_itoa(int num)
 	int divisor = 1000000000;
 	int len = _numlen(num);
 
-//	printf("itoa len = %d\n", len);
 	str = malloc(len * sizeof(char) + 1);
 	if (!str)
 		return (NULL);
@@ -46,7 +45,7 @@ char *_itoa(int num)
 	while (divisor)
 	{
 		digit = (num / divisor) % 10;
-		if (digit != 0)
+		if (digit != 0 || (len >= 0  && str[i - 1] >= '0'))
 		{
 			str[i] = digit + '0';
 			i++;
@@ -54,7 +53,6 @@ char *_itoa(int num)
 		}
 		divisor /= 10;
 	}
-//	printf("what is string? - %s\n", str);
 	str[i] = '\0';
 	return (str);
 }
