@@ -1,5 +1,6 @@
 #ifndef SIMPLE_SHELL
 #define SIMPLE_SHELL
+#define _XOPEN_SOURCE 700
 
 /* Library Dependencies */
 #include <unistd.h>
@@ -8,6 +9,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <string.h>
 
 /* Path Structure */
 /**

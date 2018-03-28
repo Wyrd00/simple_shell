@@ -7,12 +7,12 @@
 
 int word_count(char *s)
 {
-	if (!s)
-		return (-1);
-	int i = 0;
+	int i;
 	int words = 1;
 	char delim = ' ';
 
+	if (!s)
+		return (-1);
 	for (i = 0; s[i] != '\0'; i++)
 		if (s[i] == delim)
 			words++;

@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdio.h>
 /**
  * read_line - gets command line from user
  *
