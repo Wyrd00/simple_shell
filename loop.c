@@ -18,10 +18,14 @@ void loop(char *program)
 	{
 		line_num++;
 		line = read_line();
-		if (_strlen(line) == 0)
+		if (line[0] == '\n')
 		{
 			free(line);
 			continue;
+		}
+		if (line[0] == EOF)
+		{
+			hsh_exit(NULL, line);
 		}
 		args = tokenize(line, "\n ");
 		if (check_builtin(args, line) == 1)
