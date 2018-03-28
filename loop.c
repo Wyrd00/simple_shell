@@ -35,7 +35,6 @@ void loop(char *program)
 		{
 			free(args[x]);
 			x++;
-
 		}
 
 		free(line);
