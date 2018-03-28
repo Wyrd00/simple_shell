@@ -12,6 +12,7 @@ path_t *make_path(void)
 	path_t *temp;
 	char *path_name, *token;
 
+	path_name = NULL;
 	temp = malloc(sizeof(path_t));
 	if (!temp)
 		return (NULL);

@@ -25,24 +25,22 @@ void loop(char *program)
 			free(line);
 			continue;
 		}
-		if (line[0] == EOF)
-		{
-			hsh_exit(NULL, line);
-		}
 		args = tokenize(line, "\n ");
 		if (check_builtin(args, line) == 1)
 			status = execute(args, program);
 		x = 0;
 		while (args[x] != NULL)
 		{
-			free(args[x]);
+			if (args[x])
+				free(args[x]);
 			x++;
 		}
 
-		free(line);
-		free(args);
+		if (line)
+			free(line);
+		if (args)
+			free(args);
 	}
-	free_path(main_path);
-	free_path(env);
-
+		free_path(main_path);
+		free_path(env);
 }

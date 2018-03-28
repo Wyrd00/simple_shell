@@ -14,7 +14,9 @@ char *read_line(void)
 		write(1, "$ ", 2);
 	if (getline(&line, &n, stdin) <= 0)
 	{
-		exit(0);
+		if (isatty(STDIN_FILENO) == 1)
+			write(STDOUT_FILENO, "\n", 1);
+		hsh_exit(NULL, line);
 	}
 	return (line);
 }
