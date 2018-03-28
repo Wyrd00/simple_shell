@@ -43,13 +43,4 @@ void print_env(void)
 	}
 }
 
-/**
- * _cd - changes directory
- * @args: command line arguments
- *
- */
 
-void _cd(char **args)
-{
-	printf("This would change directory to: %s", args[1]);
-}

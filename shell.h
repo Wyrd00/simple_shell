@@ -67,7 +67,6 @@ void free_env(path_t *head);
 int check_builtin(char **args, char *line);
 void hsh_exit(char **args, char *line);
 void print_env(void);
-void _cd(char **args);
 void _setenv(char *name, char *value);
 
 /* Error Handling */

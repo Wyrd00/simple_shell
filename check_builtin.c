@@ -23,15 +23,5 @@ int check_builtin(char **args, char *line)
 		_setenv(args[1], args[2]);
 		return (0);
 	}
-	else if (_strcmp(args[0], "unsetenv") == 0)
-	{
-		printf("This does unsetenv\n");
-		return (0);
-	}
-	else if (_strcmp(args[0], "cd") == 0)
-	{
-		_cd(args);
-		return (0);
-	}
 	return (1);
 }
