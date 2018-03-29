@@ -6,8 +6,6 @@ The simple shell is a command line interpreter that was first conceived by Ken T
 ## VERSION
 This version of simple shell has been used on Ubuntu 14.04.5 LTS
 
-## FILE ARCHITECTURE
-
 ## TO RUN:
 Clone this repo:
 ```git clone "https://github.com/set808/simple_shell.git"```
