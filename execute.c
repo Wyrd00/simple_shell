@@ -14,7 +14,7 @@ int check_command(char **args, char *program)
 
 	if (args[0][0] == '/')
 	{
-		if (execve(args[0], args, environ) == -1)
+		if (execve(args[0], args, NULL) == -1)
 			__error(args, program, 3);
 	}
 	else
@@ -22,7 +22,7 @@ int check_command(char **args, char *program)
 		result = (check_path(main_path, args[0]));
 		if (!result)
 			__error(args, program, 1);
-		if (execve(result, args, environ) == -1)
+		if (execve(result, args, NULL) == -1)
 			__error(args, program, 2);
 	}
 	return (1);
