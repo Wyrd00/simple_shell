@@ -41,6 +41,6 @@ void loop(char *program)
 		if (args)
 			free(args);
 	}
-		free_path(main_path);
-		free_path(env);
+	free_path(main_path);
+	free_path(env);
 }
